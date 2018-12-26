@@ -1,6 +1,20 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { hot } from 'react-hot-loader'
+import { hot } from 'react-hot-loader';
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Redirect,
+    NavLink
+} from "react-router-dom";
+import { StatusRoute } from "./router";
+
+import Bar from "./views/Bar";
+import Baz from "./views/Baz";
+import Foo from "./views/Foo";
+import TopList from "./views/TopList";
+
 import "./assets/app.scss";
 
 class Root extends React.Component {
@@ -28,17 +42,43 @@ class Root extends React.Component {
                 </Helmet>
                 <div className="title" onClick={this.oncls}>This is a react ssr demo</div>
                 <ul className="nav">
-                    <li>Bar</li>
-                    <li>Baz</li>
-                    <li>Foo</li>
-                    <li>TopList</li>
-                    <li>types</li>
-                    <li>TEST</li>
+                    <li><NavLink to="/bar">Bar</NavLink></li>
+                    <li><NavLink to="/baz">Baz</NavLink></li>
+                    <li><NavLink to="/foo">Foo</NavLink></li>
+                    <li><NavLink to="/top-list">TopList</NavLink></li>
                 </ul>
+                <div className="view">
+                    <Switch>
+                        <Route path="/bar" component={Bar} />
+                        <Route path="/baz" component={Baz} />
+                        <Route path="/foo" component={Foo} />
+                        <Route path="/top-list" component={TopList} />
+                        <Redirect from="/" to="/bar" exact />
+                        <StatusRoute code={404}>
+                            <div>
+                                <h1>Not Found</h1>
+                            </div>
+                        </StatusRoute>
+                    </Switch>
+                </div>
             </div>
         );
     }
 };
 
 
-export default hot(module)(Root)
+let App;
+if (process.env.REACT_ENV === "server") {
+    // 服务端导出Root组件
+    App = Root;
+} else {
+    App = () => {
+        return (
+            <Router>
+                <Root />
+            </Router>
+        );
+    };
+}
+
+export default hot(module)(App)
