@@ -1,0 +1,64 @@
+{
+  "name": "react_router_4",
+  "version": "1.0.0",
+  "description": "react-router 4 new version test application",
+  "main": "no",
+  "scripts": {
+    "dev": "babel-node src/setup-dev-server.js",
+    "start": "cross-env NODE_ENV=production babel-node src/server.js",
+    "build": "rimraf dist && npm run build:client && npm run build:server",
+    "build:client": "cross-env NODE_ENV=production webpack --config config/webpack.config.client.js",
+    "build:server": "cross-env NODE_ENV=production webpack --config config/webpack.config.server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.coding.net:wanghes/react_router_4.git"
+  },
+  "keywords": [
+    "react-ssr",
+    "react-ssr-4"
+  ],
+  "author": "wanghes",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-saga": "^0.16.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^1.0.0",
+    "cross-env": "^5.2.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^1.0.1",
+    "express": "^4.16.4",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "isomorphic-style-loader": "^4.0.0",
+    "mini-css-extract-plugin": "^0.4.5",
+    "node-sass": "^4.10.0",
+    "postcss-loader": "^3.0.0",
+    "react-helmet": "^5.2.0",
+    "react-hot-loader": "^4.3.12",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-hot-middleware": "^2.24.3",
+    "webpack-merge": "^4.1.4"
+  }
+}

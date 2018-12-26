@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+.title {
+    font-size: 16px;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    background: #000;
+    text-align: center;
+}
+ul {
+    li{
+        padding: 0 10px;
+        line-height: 40px;
+        background: #fff;
+        color: #333;
+        border-bottom: 1px solid #f5f5f5;
+        cursor: pointer;
+        border-radius: 0;
+    }
+}
