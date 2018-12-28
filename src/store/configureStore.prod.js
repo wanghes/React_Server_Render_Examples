@@ -1,7 +1,9 @@
 import { createStore } from 'redux';
-import rootReducer from '../reducers';
-import middlewares from './middlewares';
+import createRootReducer from '../reducers';
+import midddleWareHandle from './middlewares';
 
-export default function configureStore (initialState) {
-    return createStore(rootReducer, initialState, middlewares);
+
+export default function configureStore (initialState, history) {
+    const middlewares = midddleWareHandle(history);
+    return createStore(createRootReducer(history), initialState, middlewares);
 }

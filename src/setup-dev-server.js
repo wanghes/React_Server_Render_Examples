@@ -33,7 +33,7 @@ var server = new WebpackDevServer(compiler, {
     },
     proxy: {
         "/api": {
-            target: "http://0.0.0.0:8050/api",
+            target: "http://sequelize.mntools.xyz/api",
             // 因为使用的是https，会有安全校验，所以设置secure为false
             changeOrigin: true,
             secure: false,

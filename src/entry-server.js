@@ -1,20 +1,10 @@
 import React from "react";
 import { StaticRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
+import { ConnectedRouter } from 'connected-react-router';
 import Root from "./App";
 
-// module.exports = <App setHead={(head) => App.head = head} />;
-
-const createApp = (context, url) => {
-    //init store
-    let loginStore = {
-        user: {
-            logined: true
-        }
-    };
-    const store = configureStore(loginStore);
-
+const createApp = (context, url, store) => {
     const App = () => {
         return (
             <Provider store={store}>

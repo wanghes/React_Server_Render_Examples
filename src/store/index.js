@@ -1,5 +1,7 @@
 import configureStore from './configureStore';
 
-const store = configureStore(window.__REDUX_DATA__);
+const store = (history) => {
+    return configureStore(window.__REDUX_DATA__, history);
+};
 
 export default store;

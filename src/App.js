@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { hot } from 'react-hot-loader';
+import { renderRoutes } from 'react-router-config';
 import {
     BrowserRouter as Router,
     Route,
@@ -8,7 +9,7 @@ import {
     Redirect,
     NavLink
 } from "react-router-dom";
-import { StatusRoute } from "./router";
+import { StatusRoute, router } from "./router";
 
 import Bar from "./views/Bar";
 import Baz from "./views/Baz";
@@ -20,17 +21,13 @@ import "./assets/app.scss";
 class Root extends React.Component {
     constructor(props) {
         super(props);
-        console.log('-------------------'+process.env.REACT_ENV+'-----------------------');
+        console.log('-------------------' + process.env.REACT_ENV + '-----------------------');
         if (process.env.REACT_ENV === "server") {
             // 当前如果是服务端渲染时将Helmet设置给外层组件的head属性中
             this.props.setHead(Helmet);
         }
     }
-    oncls() {
-        console.log('22');
-    }
     render() {
-        console.log('render');
         return (
             <div>
                 <Helmet>
@@ -40,19 +37,23 @@ class Root extends React.Component {
                     <meta name="description" content="我们已经目睹了很多载入史册的灾难性天气。这都和全球性的气候变暖脱不了干系"></meta>
                     { /* <link href="http://asd.com/s.css" rel="stylesheet"></link> */ }
                 </Helmet>
-                <div className="title" onClick={this.oncls}>This is a react ssr demo</div>
+                <div className="title">服务端渲染DEMO</div>
                 <ul className="nav">
-                    <li><NavLink to="/bar">Bar</NavLink></li>
-                    <li><NavLink to="/baz">Baz</NavLink></li>
-                    <li><NavLink to="/foo">Foo</NavLink></li>
-                    <li><NavLink to="/top-list">TopList</NavLink></li>
+                    <li><NavLink activeClassName="selected" to="/bar">Bar</NavLink></li>
+                    <li><NavLink activeClassName="selected" to="/baz">Baz</NavLink></li>
+                    <li><NavLink activeClassName="selected" to="/foo">Foo</NavLink></li>
+                    <li><NavLink activeClassName="selected" to="/top-list">TopList</NavLink></li>
                 </ul>
                 <div className="view">
                     <Switch>
-                        <Route path="/bar" component={Bar} />
-                        <Route path="/baz" component={Baz} />
-                        <Route path="/foo" component={Foo} />
-                        <Route path="/top-list" component={TopList} />
+                        { renderRoutes(router) }
+
+                        {/*
+                            <Route path="/bar" component={Bar} />
+                            <Route path="/baz" component={Baz} />
+                            <Route path="/foo" component={Foo} />
+                            <Route path="/top-list" component={TopList} />
+                        */}
                         <Redirect from="/" to="/bar" exact />
                         <StatusRoute code={404}>
                             <div>
@@ -67,18 +68,18 @@ class Root extends React.Component {
 };
 
 
-let App;
-if (process.env.REACT_ENV === "server") {
-    // 服务端导出Root组件
-    App = Root;
-} else {
-    App = () => {
-        return (
-            <Router>
-                <Root />
-            </Router>
-        );
-    };
-}
+// let App;
+// if (process.env.REACT_ENV === "server") {
+//     // 服务端导出Root组件
+//     App = Root;
+// } else {
+//     App = () => {
+//         return (
+//             //<Router>
+//                 <Root />
+//             //</Router>
+//         );
+//     };
+// }
 
-export default hot(module)(App)
+export default hot(module)(Root)

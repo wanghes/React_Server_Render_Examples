@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { withRouter } from "react-router-dom";
 
 class TopList extends React.Component {
     render() {
@@ -14,4 +15,4 @@ class TopList extends React.Component {
     }
 }
 
-export default TopList;
+export default withRouter(TopList);

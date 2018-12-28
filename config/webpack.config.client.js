@@ -12,6 +12,10 @@ const webpackConfig = merge(baseWebpackConfig, {
         app: "./src/entry-client.js"
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env.BASE_URL": JSON.stringify("http://sequelize.mntools.xyz"),
+            "process.env.REACT_ENV": JSON.stringify("client")  // 指定React环境为客户端
+        }),
         new HtmlWebpackPlugin({
             template: "index.html",
             filename: "index.html"
