@@ -4,14 +4,6 @@ import axios from 'axios';
 
 export const increment = () => ({ type: types.INCREMENT });
 
-// let instance = null;
-// if (process.env.BASE_URL) {
-//     instance = axios.create({
-//         baseURL: process.env.BASE_URL,
-//         timeout: 10000
-//     });
-// }
-
 
 /**
  * 获取users

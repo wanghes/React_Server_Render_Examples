@@ -5,9 +5,6 @@ import postReducer from './post';
 import { connectRouter } from 'connected-react-router';
 
 export default (history) => {
-    console.log('-----------')
-    console.log(history)
-    console.log('-----------')
     return combineReducers({
         router: connectRouter(history),
         post: postReducer,

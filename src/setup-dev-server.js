@@ -34,13 +34,10 @@ var server = new WebpackDevServer(compiler, {
     proxy: {
         "/api": {
             target: "http://sequelize.mntools.xyz/api",
-            // 因为使用的是https，会有安全校验，所以设置secure为false
             changeOrigin: true,
+            // 因为使用的是https，会有安全校验，所以设置secure为false
             secure: false,
             pathRewrite: {'^/api' : ''}
-            // ingorePath 默认即为 false, 注释掉也可以
-            // ingorePath: false,
-            // changeOrigin是关键，如果不加这个就无法跳转请求
         }
     }
 });
