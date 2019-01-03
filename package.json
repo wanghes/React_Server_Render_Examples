@@ -1,64 +1,42 @@
 {
-  "name": "react_router_4",
+  "name": "douban-movie-react-ssr",
   "version": "1.0.0",
-  "description": "react-router 4 new version test application",
-  "main": "no",
-  "scripts": {
-    "dev": "babel-node src/setup-dev-server.js",
-    "start": "cross-env NODE_ENV=production babel-node src/server.js",
-    "build": "rimraf dist && npm run build:client && npm run build:server",
-    "build:client": "cross-env NODE_ENV=production webpack --config config/webpack.config.client.js",
-    "build:server": "cross-env NODE_ENV=production webpack --config config/webpack.config.server.js"
-  },
+  "description": "A simple demo with Redux, React-router and React server side rendering",
   "repository": {
     "type": "git",
-    "url": "git@git.coding.net:wanghes/react_router_4.git"
+    "url": "https://github.com/ibufu/douban-movie-react-ssr.git"
   },
-  "keywords": [
-    "react-ssr",
-    "react-ssr-4"
-  ],
-  "author": "wanghes",
+  "scripts": {
+    "start": "webpack --progress --colors --config webpack.dev.config.js && webpack --progress --colors --config webpack.node.config.js && node server/dist/server.bundle.js"
+  },
+  "author": "morning <wzl_911@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-redux": "^5.1.1",
-    "react-router-dom": "^4.3.1",
-    "redux": "^4.0.1",
-    "redux-saga": "^0.16.2"
+    "babel-polyfill": "^6.13.0",
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "history": "^3.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.7.0",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "clean-webpack-plugin": "^1.0.0",
-    "cross-env": "^5.2.0",
-    "copy-webpack-plugin": "^4.6.0",
-    "css-loader": "^1.0.1",
-    "express": "^4.16.4",
-    "file-loader": "^2.0.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "isomorphic-style-loader": "^4.0.0",
-    "mini-css-extract-plugin": "^0.4.5",
-    "node-sass": "^4.10.0",
-    "postcss-loader": "^3.0.0",
-    "react-helmet": "^5.2.0",
-    "react-hot-loader": "^4.3.12",
-    "rimraf": "^2.6.2",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "url-loader": "^1.1.2",
-    "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-middleware": "^3.4.0",
-    "webpack-dev-server": "^3.1.10",
-    "webpack-hot-middleware": "^2.24.3",
-    "webpack-merge": "^4.1.4"
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-latest": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.24.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.22.0",
+    "ignore-loader": "^0.1.1",
+    "redux-logger": "^2.6.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.15.0"
   }
 }
