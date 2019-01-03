@@ -9,7 +9,7 @@ import createMemoryHistory from 'history/createMemoryHistory';
 import routes from '../src/router';
 import configureStore from './store/configureStore';
 
-process.env.BASE_URL = "http://sequelize.mntools.xyz"
+process.env.BASE_URL = "http://sequelize.mousecloud.cn"
 const app = express();
 
 let serverEntry = require("../dist/entry-server");

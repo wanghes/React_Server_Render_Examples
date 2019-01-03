@@ -19,7 +19,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     target: "node",  // 指定node运行环境
     plugins: [
         new webpack.DefinePlugin({
-            "process.env.BASE_URL": JSON.stringify("http://sequelize.mntools.xyz"),
+            "process.env.BASE_URL": JSON.stringify("http://sequelize.mousecloud.cn"),
             "process.env.REACT_ENV": JSON.stringify("server")  // 指定React环境为服务端
         }),
         new MiniCssExtractPlugin({

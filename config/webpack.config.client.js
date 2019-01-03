@@ -13,7 +13,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     },
     plugins: [
         new webpack.DefinePlugin({
-            "process.env.BASE_URL": JSON.stringify("http://sequelize.mntools.xyz"),
+            "process.env.BASE_URL": JSON.stringify("http://sequelize.mousecloud.cn"),
             "process.env.REACT_ENV": JSON.stringify("client")  // 指定React环境为客户端
         }),
         new HtmlWebpackPlugin({
